@@ -4,7 +4,7 @@ import CustomButton from '../CustomButton/CustomButton';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactsOps';
 
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -15,8 +15,8 @@ const ContactFormSchema = Yup.object().shape({
     .min(2, 'Too Short!')
     .max(12, 'Too Long!')
     .matches(
-      /^\d{3}-\d{2}-\d{2}$/,
-      'Invalid phone number format. Expected format: 222-33-77'
+      /^\d{3}-\d{3}-\d{4}$/,
+      'Invalid phone number format. Expected format: 660-816-3477'
     )
     .required('Required'),
 });
